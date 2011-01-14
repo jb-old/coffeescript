@@ -32,9 +32,17 @@
             <textarea id="repl_source" rows="100"># Enter CoffeeScript code here and it will be
 # translated to JavaScript in real-time. You
 # can run the code by pressing the Run button
-# to the right or command-R.
+# to the right or command-R. Parse errors will
+# be indicated at the right of in the header.
 
-alert "Hello CoffeeScript!"
+sayHello = (who) -> alert "Hello #{who}!"
+sayGoodbye = (who) -> alert "Goodbye #{who}!"
+
+helloGoodbye = ->
+  sayHello "CoffeeScript"
+  setTimeout (-> sayGoodbye "Semicolons"), 500
+
+helloGoodbye()
 </textarea>
           </div>
           <div id="repl_results_wrap"><pre id="repl_results"></pre></div>
